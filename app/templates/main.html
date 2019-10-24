@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Welcome to TinyUrl service!</title>
+</head>
+<body>
+    <form action="{{ url_for('create_short_link') }}" method="post">
+        <h3>Full link</h3>
+        <input type="url" name="full_link">
+        <input type="submit" name="full_link_button">
+    </form>
+
+
+    <form action="{{ url_for('create_short_link') }}"  method="get">
+        <h3> Short Link</h3>
+        {{ context.short_link }}
+        <h3> Full Link</h3>
+        {{ context.full_link }}
+    </form>
+</body>
+</html>
