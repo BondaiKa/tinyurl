@@ -1,20 +1,31 @@
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Welcome to TinyUrl service!</title>
 </head>
 <body>
-    <form action="{{ url_for('create_short_link') }}" method="post">
-        <h3>Full link</h3>
-        <input type="url" name="full_link">
-        <input type="submit" name="full_link_button">
-    </form>
+<form action="{{ url_for('create_short_link') }}" method="post">
+    <div class="form-group">
+        <h4>
+            <label for="full_link">Full link</label>
+        </h4>
+    </div>
 
+    <div style="float: left; width: 25%">
+        <input type="url" class="form-control" name="full_link" placeholder="Shorten you url">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
 
-    <form action="{{ url_for('create_short_link') }}"  method="get">
-        <h3> Short Link</h3>
-        {{ context.short_link }}
+<form action="{{ url_for('create_short_link') }}" method="get">
+    {% if context.short_link and context.full_link %}
+        <h4>Short Link</h4>
+        <a href="{{ context.short_link }}">{{ context.short_link }}</a>
         <h3> Full Link</h3>
-        {{ context.full_link }}
-    </form>
+        <a href="{{ context.full_link }}">{{ context.full_link }}</a>
+    {% endif %}
+</form>
 </body>
 </html>
