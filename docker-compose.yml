@@ -1,0 +1,16 @@
+version: '2'
+services:
+  web:
+    container_name: tinyurl.web
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - ./app:/code/app
+    depends_on:
+      - redis
+  redis:
+    container_name: tinyurl.redis
+    image: redis
+    volumes:
+      - ../var/db:/var/lib/redis/data
