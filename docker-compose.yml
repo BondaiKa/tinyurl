@@ -9,8 +9,11 @@ services:
       - ./app:/code/app
     depends_on:
       - redis
+    env_file:
+      - ./.env
+  
   redis:
     container_name: tinyurl.redis
     image: redis
     volumes:
-      - ../var/db:/var/lib/redis/data
+      - ./var/db:/var/lib/redis/data
