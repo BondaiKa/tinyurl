@@ -7,6 +7,7 @@ services:
       - 5000:5000
     volumes:
       - ./app:/code/app
+      - ./tests:/code/tests
     depends_on:
       - redis
     env_file:

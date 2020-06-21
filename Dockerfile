@@ -7,6 +7,7 @@ COPY requirements.txt /code/requirements.txt
 COPY app /code/app
 COPY config.py /code/config.py
 COPY app.py /code/app.py
+COPY tests /code/tests
 
 RUN pip install -r requirements.txt
 
