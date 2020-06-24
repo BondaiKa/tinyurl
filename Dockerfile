@@ -9,5 +9,6 @@ COPY config.py /code/config.py
 COPY tinyurl.py /code/tinyurl.py
 COPY tests /code/tests
 
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
