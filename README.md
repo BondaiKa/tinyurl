@@ -2,6 +2,7 @@
 
 #### Run your own URL shrinking service such as bit.ly or goo.gl.
 
+[Project implementation plan](./develop-plan.md)
 
 #### Installation 
 
