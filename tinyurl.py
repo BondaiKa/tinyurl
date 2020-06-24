@@ -1,6 +1,7 @@
 import os
 
 from app import app
+from config import Config
 
 HOST = os.environ.get('HOST')
 

@@ -17,24 +17,36 @@ regex = re.compile(
 
 @app.errorhandler(404)
 def page_not_found(error):
+    """return 404 not found page"""
     return render_template('404.html', title='404'), 404
 
 
 def create_short_link():
+    """
+    post:
+        create short link
+    get:
+        show short link if previous request was post short link 
+    """
     full_link, short_link = None, None
 
-    if request.method == 'POST' and re.match(regex, request.form['full_link']):
+    if request.method == 'POST':
+        print(request.form)
+        if not re.match(regex, request.form['full_link']):
+            abort(400, 'Link is broken')
         full_link = request.form['full_link']
         redis.incr('linked_id')
         counter = int(redis.get('linked_id'))
         short_link = comp.compress_url(counter)
         redis.set(short_link, full_link, nx=True)
         short_link = request.url + short_link
-
     return render_template('main.html', context={'full_link': full_link, 'short_link': short_link})
 
 
 def get_short_link(short_link):
+    """
+    get: redirect to full link permanent
+    """
     full_link = redis.get(short_link)
     if full_link is None:
         abort(404)
