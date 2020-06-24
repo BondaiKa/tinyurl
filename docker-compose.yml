@@ -1,16 +1,23 @@
-version: '2'
+version: '3'
 services:
   web:
     container_name: tinyurl.web
+    command: python tinyurl.py
     build: .
     ports:
       - 5000:5000
     volumes:
       - ./app:/code/app
+      - ./tests:/code/tests
     depends_on:
       - redis
+    env_file:
+      - .env
+    restart: always
+  
   redis:
     container_name: tinyurl.redis
     image: redis
     volumes:
-      - ../var/db:/var/lib/redis/data
+      - ./var/db:/var/lib/redis/data
+    restart: always
