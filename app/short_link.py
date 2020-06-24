@@ -31,7 +31,6 @@ def create_short_link():
     full_link, short_link = None, None
 
     if request.method == 'POST':
-        print(request.form)
         if not re.match(regex, request.form['full_link']):
             abort(400, 'Link is broken')
         full_link = request.form['full_link']
@@ -40,6 +39,7 @@ def create_short_link():
         short_link = comp.compress_url(counter)
         redis.set(short_link, full_link, nx=True)
         short_link = request.url + short_link
+        app.logger.info(f'create short link: {short_link}')
     return render_template('main.html', context={'full_link': full_link, 'short_link': short_link})
 
 
@@ -50,4 +50,5 @@ def get_short_link(short_link):
     full_link = redis.get(short_link)
     if full_link is None:
         abort(404)
+    app.logger.info(f' short link {short_link} redirect to: {full_link}')
     return redirect(full_link, code=302)
