@@ -1,7 +1,7 @@
 #### Tiny url service (Karim)
 
 | Proejct Name | **Tiny url**  |
-| :---:   | :-: | 
+| :---:   | :- | 
 | Category | Pet project | 
 | Description | is a URL shortening web service, which provides short aliases for redirection of long URLs |
 | Tech stack | **Frontend**: Bootstrap **Backend** Python(Flask), Redis, Docker, Github |
