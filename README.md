@@ -1,8 +1,19 @@
 ### Flask TinyURL Service
-
 #### Run your own URL shrinking service such as bit.ly or goo.gl.
 
-[Project implementation plan](./develop-plan.md)
+#### Project Documentation
+* [Project documnetation](./documentation/documentation.md)   
+
+#### Architecture
+![High Level App View](./documentation/high-level-app-view.png)   
+
+
+[Project implementation plan](./documentation/develop-plan.md)   
+[Log work](./documentationlog-hours.md)   
+
+* Original Estimate - **16h**
+* Log work - **14h 30m**
+* Remaining Estimate - **0m**
 
 #### Installation 
 

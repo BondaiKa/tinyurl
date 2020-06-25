@@ -1,17 +1,24 @@
+import string
+
 class CompressionLink:
-    id = 100000000
+    """class that allow to convert long link to short"""
+    CHARACTERS = string.printable[:62]
+    LEN_CHAR = len(CHARACTERS)
+
+    def __init__(self):
+        self.INITIAL_ENCODE = 100_000_000
 
     def compress_url(self, counter):
-        self.id += counter
-        shorten_url = self.encode(self.id)
+        """get counter from redis and encode new short string"""
+        self.INITIAL_ENCODE += counter
+        shorten_url = self.encode(self.INITIAL_ENCODE)
         return shorten_url
 
-    def encode(self, id):
-        characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        base = len(characters)
+    def encode(self, number):
+        """generate new short link according to `id`"""
         ret = []
-        while id > 0:
-            val = id % base
-            ret.append(characters[val])
-            id = id // base
+        while number > 0:
+            val = number % self.LEN_CHAR
+            ret.append(self.CHARACTERS[val])
+            number = number // self.LEN_CHAR
         return "".join(ret[::-1])
