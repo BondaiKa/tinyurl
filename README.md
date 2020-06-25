@@ -2,7 +2,7 @@
 #### Run your own URL shrinking service such as bit.ly or goo.gl.
 
 #### Project Documentation
-* [Project documnetation](./documentation/documentation.md)   
+* [Project documentation](./documentation/documentation.md)   
 
 #### Architecture
 ![High Level App View](./documentation/high-level-app-view.png)   
