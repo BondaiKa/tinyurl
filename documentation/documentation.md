@@ -1,6 +1,6 @@
-#### Tiny url service
+#### Tiny url service (Karim)
 
-| Proejct Name | #1  |
+| Proejct Name | **Tiny url**  |
 | :---:   | :-: | 
 | Category | Pet project | 
 | Description | is a URL shortening web service, which provides short aliases for redirection of long URLs |
