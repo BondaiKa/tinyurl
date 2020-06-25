@@ -9,7 +9,7 @@
 
 
 [Project implementation plan](./documentation/develop-plan.md)   
-[Log work](./documentationlog-hours.md)   
+[Log work](./documentation/log-hours.md)   
 
 * Original Estimate - **16h**
 * Log work - **14h 30m**
